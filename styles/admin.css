@@ -1,0 +1,44 @@
+.style-form{
+    justify-content:space-around;
+    width: 100%;
+}
+.adminModif-style{
+    height: 12%;
+}
+
+.linkStyle{
+    border-radius: 10px;
+    border:solid 2px black;
+    font-size:17px;
+    font-weight:500 ;
+    color: black;
+    background-color: #4B30B5;
+    text-decoration: none;
+    width:20%;
+    height:100%;
+}
+
+.containerWidth{
+    width:100%;
+}
+
+.label_user{
+    border: solid 1px black;
+    background-color: hsl(252, 58%, 45%,0.7);
+    border-radius: 5px;
+}
+
+.logo-modif{
+    height:20px;
+    width:20px;
+}
+
+.table-modif{
+    width:90%;
+    table-layout: fixed;
+}
+
+
+.table-modif :last-child td{
+    width: 30px;
+}

@@ -1,0 +1,28 @@
+.Logo{
+    height:120px;
+    width:120px;
+
+}
+
+body{
+
+    margin:0 auto;
+    padding:0 auto;
+}
+
+.header_componnent{
+    height:200px;
+    width: 120px;
+    border-bottom: 1px solid black;
+
+}
+
+header{
+    padding: 0;
+    width: 120px;
+}
+ 
+.pageContainer{
+    width: 100%;
+}
+

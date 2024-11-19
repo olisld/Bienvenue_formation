@@ -1,0 +1,62 @@
+.Container1{
+    width:100vw;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Container2{
+    width: 35vw;
+    height:60vh;
+    border-radius: 10px;
+}
+.Container-Connection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label-width {
+    width: 100px; /* Ajuste la largeur des labels */
+}
+
+.input-width {
+    flex: 1; /* L'input prendra le reste de l'espace disponible */
+    padding: 5px; /* Ajoute du padding pour un meilleur visuel */
+    margin-left: 10px; /* Ajoute un peu d'espace entre le label et l'input */
+}
+.submit-button{
+    background-color: #4B30B5;
+    color:white;
+    border:0;
+    border-radius: 10px;
+    padding: 5px;
+}
+.Title{
+    color: #4B30B5;
+}
+
+.container3{
+    width: 35vw;
+    height:87vh;
+    border-radius: 10px;
+}
+.submit-button-register{
+    background-color: #4B30B5;
+    color:white;
+    border:0;
+    border-radius: 10px;
+    padding: 10px;
+
+}
+.container4{
+    width:auto;
+    height:87vh;
+    border-radius:10px
+
+}

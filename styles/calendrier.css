@@ -1,0 +1,18 @@
+.title_container{
+    width: 100%;
+}
+td{
+    border:solid 2px black !important;
+    background-color: rgba(138, 43, 226, 0.5) !important; 
+}
+/* tr{
+    width: 90%;
+} */
+.calendrier-table{
+    margin-left:40px;
+    margin-top:30px;
+    width:90%;
+    height:80%;
+    table-layout: fixed;
+
+}
