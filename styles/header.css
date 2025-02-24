@@ -14,7 +14,13 @@ body{
     height:200px;
     width: 120px;
     border-bottom: 1px solid black;
-
+}
+.header_componnent2{
+    flex-grow: 1; /* Fait en sorte que cet élément occupe l'espace restant */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left:15px;
 }
 
 header{

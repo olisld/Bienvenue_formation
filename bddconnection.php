@@ -1,6 +1,6 @@
+
 <?php
 // include 'head.php';
-
     $host = 'localhost';
     $db   = 'élève';
     $user = 'olivier';
@@ -11,9 +11,6 @@
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES   => false,
     ];
-
-    
-
     // $pdo = new PDO('mysql:host='.$host.'; port=3306; dbname='.$db,$user,$pass);
     try {
         $pdo = new PDO("mysql:host=$host;dbname=$db;charset=$charset", $user, $pass);

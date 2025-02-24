@@ -1,26 +1,43 @@
-
 <?php
 session_start();
     include_once('head.php');
-    include_once 'bddconnection.php';
+    include_once ('bddconnection.php');
     // var_dump($_POST);
+    
+
+    function fetch($sql, $pdo,$params=[]) {
+        $stmt = $pdo->prepare($sql);
+        foreach ($params as $key => &$value) {
+            $stmt->bindParam($key, $value, PDO::PARAM_STR);
+        }
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC); // Récupère toutes les lignes sous forme de tableau associatif
+    }
+
+        
 
     if($_SERVER["REQUEST_METHOD"]=='POST'){
         $login = $_POST['login'];
         $password = $_POST['password'];
+        $sqlEleve="SELECT * FROM élève WHERE Login = :login";
+        $Eleve=fetch($sqlEleve,$pdo,[':login' => $login]);
         $_SESSION =[
             'login' =>$_POST['login'],
-            'password' =>$_POST['password']
+            'password' =>$_POST['password'],
+            'userTypes' =>$Eleve[0]['UserTypes'],
+            'eleve_id' =>$Eleve[0]['ID']
         ];
-        login($login,$password,$pdo);
+        
+
+        login($sqlEleve,$login,$password,$pdo);
         // echo "Login: $login, Password: $password<br>";
 // FROM élève 
     // Requête pour vérifier les identifiants
     }
-    function login($login, $password, $pdo) {
+    function login($sqlEleve,$login, $password, $pdo) {
         // Requête pour récupérer l'utilisateur avec le login fourni
-        $sql = "SELECT * FROM élève WHERE Login = :login";
-        $stmt = $pdo->prepare($sql);
+        // $sql = "SELECT * FROM élève WHERE Login = :login";
+        $stmt = $pdo->prepare($sqlEleve);
         $stmt->bindParam(':login', $login);
         $stmt->execute();
     
@@ -33,10 +50,10 @@ session_start();
             if (password_verify($password, $result['MDP'])) {
                 // Si le mot de passe est correct, on redirige en fonction du type d'utilisateur
                 if ($result['UserTypes'] === 'élève') {
-                    header("Location: home.php");
+                    header("Location: calendrier.php");
                     exit();
                 } else if($result['UserTypes'] === 'prof'){
-                    header("Location: prof.php");
+                    header("Location: calendrier.php");
                     exit();
                 }
                 else{

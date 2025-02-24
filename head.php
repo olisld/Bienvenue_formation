@@ -11,6 +11,8 @@
     <link rel='stylesheet' href='./styles/login.css'>
     <link rel='stylesheet' href='./styles/calendrier.css'>
     <link rel='stylesheet' href='./styles/admin.css'>
+    <link rel='stylesheet' href='./styles/signature.css'>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
     <body>

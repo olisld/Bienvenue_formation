@@ -62,6 +62,7 @@ function hashFunction($in){
                     <label><input type="radio" name="userTypes" value="élève"> Elève</label>
                     <label><input type="radio" name="userTypes" value="Admin"> Administrateur</label>
                 </div>
+
                 <div class="d-flex justify-content-center">
                     <input type="submit" value="Créer" class='submit-button-register'>
                 </div>

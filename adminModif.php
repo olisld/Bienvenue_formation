@@ -60,17 +60,23 @@
         $stmt->bindParam(':classId', $classId, PDO::PARAM_INT);
         $stmt->bindParam(':eleveId', $eleveId, PDO::PARAM_INT);
         $stmt->execute();
+        header('Location: adminModif.php');  // Change 'admin.php' selon la page de destination
+        exit();
     }
     
     if($_SERVER["REQUEST_METHOD"]=='POST'){
         try {
             Modification( $pdo,$login, $userName, $userTypes, $classId, $eleveId);
+
         } catch (PDOException $e) {
             echo "Erreur SQL : " . $e->getMessage();
         }
 
     }
 ?>
+<a href='admin.php' class='m-2 mr-3'>
+    <i class="bi bi-arrow-left fs-2 text-primary border border-dark rounded-circle px-2 py-1 circle-arrow"></i>
+</a>
 <div class='containerWidth'>
     <div class='d-flex justify-content-around'>
         <div class='bg-light container4'>
@@ -87,7 +93,7 @@
                     <?php
                         if(!empty($élèves)){
                             foreach($élèves as $élève){
-                                $userTypes= $élève['UserTypes'];
+                                $userTypes = $élève['UserTypes'];
                                 // $className= $classe['name'];
 
                                 echo    '<tr>
@@ -112,17 +118,17 @@
 
                                                     <select name="classID" id="classSelect" class="form-select" aria-label="Default select example">';
                     
-                                                    // Boucle pour parcourir chaque ligne de données
-                        
-                                                    foreach ($classe as $row) {
+                                                        // Boucle pour parcourir chaque ligne de données
 
-                                                    // On ne veut pas ajouter d'options pour les lignes avec un nom vide
-                                                        if (!empty($row['name'])) {
-                                                            $selected = ($row['id'] == $élève['class_id']) ? 'selected' : '';
-                                                            echo '<option value="' . htmlspecialchars($row['id']) . '"'.$selected.'>' . htmlspecialchars($row['name']) . '</option>';
+                                                        foreach ($classe as $row) {
+
+                                                        // On ne veut pas ajouter d'options pour les lignes avec un nom vide
+                                                            if (!empty($row['name'])) {
+                                                                $selected = ($row['id'] == $élève['class_id']) ? 'selected' : '';
+                                                                echo '<option value="' . htmlspecialchars($row['id']) . '"'.$selected.'>' . htmlspecialchars($row['name']) . '</option>';
+                                                            }
                                                         }
-                                                    }
-                            echo                '</select>
+                            echo                    '</select>
                                                 </td>
                                                 <td class="py-3 text-center">
                                                     <input class="btn btn-primary" type="submit" value="Modifier">

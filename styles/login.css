@@ -58,5 +58,27 @@
     width:auto;
     height:87vh;
     border-radius:10px
+}
+.container5{
+    width:50vw;
+    height:fit-content;
+}
+
+.text-align-center{
+    text-align:center;
+}
+.trSeparateur{
+    height:20px
+}
+.trLittleSeparateur{
+    height:5px
+}
+.trEleve{
+
+}
+.tbodyMarginBot{
+
+}
+.tbodyEleve{
 
 }

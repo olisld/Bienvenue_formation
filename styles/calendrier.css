@@ -1,5 +1,8 @@
 .title_container{
     width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
 }
 td{
     border:solid 2px black !important;
@@ -11,8 +14,32 @@ td{
 .calendrier-table{
     margin-left:40px;
     margin-top:30px;
-    width:90%;
-    height:80%;
+    width:auto;
+
     table-layout: fixed;
 
 }
+.calendar_color{
+    color:rgba(138, 43, 226, 0.5);
+}
+
+.cellule_height{
+    height:20%;
+}
+.matiere{
+    text-align:center
+}
+.salle{
+
+    display:flex;
+    align-items:center;
+    background-color: blue;
+    border-radius: 5px;
+    padding:5px;
+}
+.align_item_center{
+    display:flex;
+    align-items:center;
+
+}
+
