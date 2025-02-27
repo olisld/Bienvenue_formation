@@ -123,10 +123,14 @@ session_start();
                     <label for="Password" class="label-width">Password :</label>
                     <input type="password" name="password" placeholder="Mot de passe" class="input-width">
                 </div>
+                <div class='d-flex align-items-center mb-5'>
+                    <a href="register.php">Créer un compte</a>
+                </div>
 
                 <div class="d-flex justify-content-center">
                     <input type="submit" value=" Se connecter" class='submit-button'>
                 </div>
+                
             </form>
         </div>
     </div>

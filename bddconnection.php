@@ -1,10 +1,18 @@
 
 <?php
 // include 'head.php';
-    $host = 'localhost';
-    $db   = 'élève';
+    $db= 'élève';
+    $host= 'localhost';
+// Local
+    
+    // $db   = 'élève';
+    // $user = 'olivier';
+    // $pass = 'olivier';
+
+// VPS
+    
     $user = 'olivier';
-    $pass = 'olivier';
+    $pass = 'Baumette49000!';
     $charset = 'utf8mb4';
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
