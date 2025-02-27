@@ -45,8 +45,8 @@ session_start();
     
         if ($result) {
             // On vérifie si le mot de passe fourni correspond au hash stocké
-            echo "Mot de passe en clair fourni : $password<br>";
-            echo "Mot de passe haché en base : " . $result['MDP'] . "<br>";
+            // echo "Mot de passe en clair fourni : $password<br>";
+            // echo "Mot de passe haché en base : " . $result['MDP'] . "<br>";
             if (password_verify($password, $result['MDP'])) {
                 // Si le mot de passe est correct, on redirige en fonction du type d'utilisateur
                 if ($result['UserTypes'] === 'élève') {
@@ -119,11 +119,11 @@ session_start();
                     <input type="text" name="login" placeholder="Identifiants" class="input-width" >
                 </div>
 
-                <div class="form-group d-flex align-items-center mb-5">
+                <div class="form-group d-flex align-items-center mb-4">
                     <label for="Password" class="label-width">Password :</label>
                     <input type="password" name="password" placeholder="Mot de passe" class="input-width">
                 </div>
-                <div class='d-flex align-items-center mb-5'>
+                <div class='d-flex justify-content-center mb-3'>
                     <a href="register.php">Créer un compte</a>
                 </div>
 

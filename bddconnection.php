@@ -5,7 +5,6 @@
     $host= 'localhost';
 // Local
     
-    // $db   = 'élève';
     // $user = 'olivier';
     // $pass = 'olivier';
 
@@ -13,6 +12,8 @@
     
     $user = 'olivier';
     $pass = 'Baumette49000!';
+
+// 
     $charset = 'utf8mb4';
     $options = [
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,

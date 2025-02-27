@@ -17,13 +17,16 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
 
 function register($login,$password,$username,$usertypes,$pdo){
     $pwd=hashFunction($password);
+    $classId=13;
     echo  $pwd;
-    $sql="INSERT INTO `élève` (`Login`,`MDP`,`username`,`userTypes`) VALUES (:login,:pwd,:username,:usertypes)";
+    $sql="INSERT INTO `élève` (`Login`,`MDP`,`username`,`userTypes`,`class_id`) VALUES (:login,:pwd,:username,:usertypes,:classId)";
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(':login', $_POST['login'], PDO::PARAM_STR);
     $stmt->bindParam(':pwd', $pwd, PDO::PARAM_STR);
     $stmt->bindParam(':username', $_POST['username'], PDO::PARAM_STR);
     $stmt->bindParam(':usertypes', $_POST['userTypes'], PDO::PARAM_STR);
+    $stmt->bindParam(':classId', $classId, PDO::PARAM_STR);
+
     $stmt->execute();
     header('Location: login.php');
     exit();
@@ -69,8 +72,6 @@ function hashFunction($in){
             </form>
         </div>
     </div>
-
-
 </div>
 
     
