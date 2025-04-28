@@ -8,6 +8,7 @@ body{
 
     margin:0 auto;
     padding:0 auto;
+    height: 100%;
 }
 
 .header_componnent{
@@ -26,9 +27,14 @@ body{
 header{
     padding: 0;
     width: 120px;
+    min-height: 100vh;
 }
  
 .pageContainer{
+
     width: 100%;
+    display: flex;
+    align-items: stretch; /* S'assure que le header et le contenu ont la même hauteur */
+    min-height: 150vh;
 }
 

@@ -25,7 +25,7 @@
 
 .label_user{
     border: solid 1px black;
-    baokground-color: hsl(252, 58%, 45%,0.7);
+    background-color: hsl(252, 58%, 45%,0.7);
     border-radius: 5px;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .table-modif{
-    width:90%;
+    width:100%;
     table-layout: fixed;
 }
 
@@ -127,4 +127,37 @@
 }
 .circle-arrow:hover{
     background-color: #4B30B5;
+}
+
+/* Conteneur des liens */
+.links-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(138, 43, 226, 0.5);
+    border-radius: 10px;
+    margin: 20px;
+}
+
+/* Chaque div contenant un lien */
+.link-item {
+    text-align: center;
+    flex: 1;
+}
+
+/* Styles des liens */
+.link {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Effet de survol des liens */
+.link:hover {
+    background-color: rgba(138, 43, 226, 0.8);
 }

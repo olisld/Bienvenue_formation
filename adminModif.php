@@ -143,3 +143,118 @@
         </div>
     </div>
 </div>
+
+<!-- Version du site en POO -->
+
+<?php
+// include_once('bddconnection.php');
+// include_once('header');
+
+// class dataBase{
+
+//     private $pdo;
+//     private $sqlEleve;
+//     private $sqlCLass;
+//     private $sqlSubject;
+//     private $dataEleve;
+//     private $dataClass;
+//     private $dataSubject;
+
+//     public function __construct($pdo){
+//         $this->pdo=$pdo;
+//         $this->loadData();
+//     }
+//     public function fetch($sql) {
+//         $stmt = $this->pdo->prepare($sql);
+//         $stmt->execute();
+//         return $stmt->fetchAll(PDO::FETCH_ASSOC); // Récupère toutes les lignes sous forme de tableau associatif
+//     }
+//     // public function renderPage($key=null){
+//     //     $data= [
+//     //         'eleves'=>$this->dataEleve,
+//     //         'class'=>$this->dataClass,
+//     //         'matiere'=>$this->dataSubject
+//     //     ];
+//     //     if($key!==null && array_key_exists($key,$data)){
+//     //         return $data[$key];
+//     //     }
+//     //     else{
+//     //         return $data;
+//     //     }
+
+        
+//     // }
+//     public function loadData(){
+        
+//         $this->dataEleve=$this->fetch('SELECT * FROM `élève`');
+//         $this->dataClass=$this->fetch('SELECT * FROM `class`');
+//         $this->dataSubject=$this->fetch('SELECT * FROM `subject`');
+
+//     }
+//     public function getEleve(){
+//         return $this->dataEleve;
+//     }
+
+//     public function getClass(){
+//         return $this->dataClass;
+//     }
+    
+// }
+// class affichagePage{
+//     private $dataBase;
+
+//     public function __construct($dataBase){
+//         $this->dataBase=$dataBase;
+//     }
+//     public function renderPage(){
+//         $eleves= $this->dataBase->getEleve;
+//         $classes= $this->dataBase->getClass;
+
+//         $html= "<a href='admin.php' class='m-2 mr-3'>
+//                 <i class='bi bi-arrow-left fs-2 text-primary border border-dark rounded-circle px-2 py-1 circle-arrow'></i>
+//                 </a>
+//                 <div class='containerWidth'>
+//                     <div class='d-flex justify-content-around'>
+//                         <div class='bg-light container4'>
+//                             <div class='Container-Connection'>
+//                                 <h1 class='mt-3 Title'>Modification utilisateurs</h1>
+//                                 <table class='table-modif'>
+//                                     <tr>
+//                                         <td class='text-center'>Login</td>
+//                                         <td class='text-center'>Username</td>
+//                                         <td class='text-center'>UserTypes</td>
+//                                         <td class='text-center'>Classe</td>
+//                                         <td class='text-center'>modif</td>
+//                                     </tr>";
+//         foreach($eleves as $eleve){
+//             $html.="'<tr>
+//                         <form method='POST' action=''>
+//                             <input type='hidden' name='id_élève' value=". htmlspecialchars($élève['ID']).">
+//                             <td class='py-3'><input type='text' name='login' value='" . htmlspecialchars($élève['Login']) . "'></td>
+//                             <td class='py-3'><input type='text' name='UserName' value='" . htmlspecialchars($élève['Username']) . "'></td>
+//                             <td class='py-3'>
+//                                 <div class='form-group d-flex flex-column justify-content-center'>
+//                                     <label>
+//                                         <input type='radio' class='form-check-input' name='userTypes' value='prof' " . (($eleve['userTypes'] == 'prof') ? 'checked' : '') . "> Professeur
+//                                     </label>
+//                                     <label>
+//                                         <input type='radio' class='form-check-input' name='userTypes' value='élève' " . (($eleve['userTypes'] == 'élève') ? 'checked' : '') . "> Elève
+//                                     </label>
+//                                     <label>
+//                                         <input type='radio' class='form-check-input' name='userTypes' value='Admin' " . (($eleve['userTypes'] == 'Admin') ? 'checked' : '') . "> Administrateur
+//                                     </label>
+//                                 </div>
+//                             </td>
+//                             <td class='py-3 text-center'>
+
+//                                 <select name='classID' id='classSelect' class='form-select' aria-label='Default select example'>';"
+//         }        
+//     }
+// }
+
+// $data=new dataBase($pdo);
+// echo '<pre>';
+// var_dump($data->getClass()); 
+// echo '</pre>';
+
+?>
