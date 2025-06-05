@@ -16,25 +16,13 @@ body{
     width: 120px;
     border-bottom: 1px solid black;
 }
-.header_componnent2{
-    flex-grow: 1; /* Fait en sorte que cet élément occupe l'espace restant */
+.header_componnent2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left:15px;
-}
-
-header{
-    padding: 0;
-    width: 120px;
-    min-height: 100vh;
-}
- 
-.pageContainer{
-
+    height: 100px;
     width: 100%;
-    display: flex;
-    align-items: stretch; /* S'assure que le header et le contenu ont la même hauteur */
-    min-height: 150vh;
 }
+
+ 
 

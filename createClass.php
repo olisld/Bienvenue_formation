@@ -30,10 +30,25 @@
         $stmt->bindParam(':class_id',$_POST['classe'], PDO::PARAM_STR);
         $stmt->bindParam(':prof_id', $_POST['prof'], PDO::PARAM_STR);
         $stmt->execute();
+        // Récupère l'ID du cours nouvellement créé
+        $cours_id = $pdo->lastInsertId();
+        // Appel à la fonction d'association des élèves
+        creationCoursEtudiant($pdo, $class_id, $cours_id);
         header('Location: createClass.php');  // Change 'admin.php' selon la page de destination
         exit();
     }
-    
+    function creationCoursEtudiant($pdo,$class_id, $cours_id) {
+    $sql = 'INSERT INTO cours_etudiant (id_cours, id_etudiant)
+            SELECT :cours_id, e.ID
+            FROM élève AS e
+            WHERE e.class_id = :class_id';
+
+    $stmt =$pdo->prepare($sql);
+    $stmt->execute([
+        ':cours_id' => $cours_id,
+        ':class_id' => $class_id
+    ]);
+    }
 
     echo '<pre>';
     // var_dump($professeur);
@@ -41,9 +56,7 @@
 
 ?>
 <!-- Fleche pour retourner su rla page precedente -->
-<a href='admin.php' class='m-2 mr-3'>
-    <i class="bi bi-arrow-left fs-2 text-primary border border-dark rounded-circle px-2 py-1 circle-arrow"></i>
-</a>
+<a href="cours.php" class="back-arrow">&larr; Retour</a>
 <!-- formulaire de création de classe -->
  
 <div class='d-flex flex-column align-items-center w-100 '>

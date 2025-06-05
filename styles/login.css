@@ -56,7 +56,7 @@
 }
 .container4{
     width:auto;
-    height:87vh;
+    min-height:87vh;
     border-radius:10px
 }
 .container5{
@@ -70,15 +70,7 @@
 .trSeparateur{
     height:20px
 }
+
 .trLittleSeparateur{
     height:5px
-}
-.trEleve{
-
-}
-.tbodyMarginBot{
-
-}
-.tbodyEleve{
-
 }

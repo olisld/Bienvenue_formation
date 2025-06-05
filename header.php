@@ -11,7 +11,7 @@ $lienSession='';
 
 if($_SESSION['userTypes']){
     if($_SESSION['userTypes']=='Admin'){
-        $lienSession='admin.php';
+        $lienSession='acceuilAdmin.php';
     }
 
     else{   
@@ -62,4 +62,3 @@ if($_SESSION['userTypes']){
 
 
         </header>
-    

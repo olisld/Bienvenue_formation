@@ -117,13 +117,14 @@ session_start();
 include_once('head.php');
 include_once('bddconnection.php');
 
+// Classe User : gère les opérations liées à l'utilisateur (authentification)
 class User {
     private $pdo;
-
+    // Constructeur : initialise la connexion à la base
     public function __construct($pdo) {
         $this->pdo = $pdo;
     }
-
+    // Méthode pour récupérer un utilisateur en fonction de son identifiant de connexion (login)
     public function fetchUserByLogin($login) {
         $sql = "SELECT * FROM élève WHERE Login = :login";
         $stmt = $this->pdo->prepare($sql);
@@ -131,11 +132,12 @@ class User {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC); // Récupère une seule ligne
     }
-
+     // Méthode pour vérifier si le mot de passe saisi correspond au mot de passe haché stocké
     public function verifyPassword($password, $hash) {
         return password_verify($password, $hash);
     }
 }
+
 
 class LoginHandler {
     private $user;
@@ -172,7 +174,7 @@ class LoginHandler {
                 header("Location: calendrier.php");
                 break;
             case 'Admin':
-                header("Location: admin.php");
+                header("Location: acceuilAdmin.php");
                 break;
             default:
                 echo "Type d'utilisateur inconnu.";

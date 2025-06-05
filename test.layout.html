@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Test layout</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .pageContainer {
+      display: flex;
+      height: 100vh;
+    }
+
+    header {
+      width: 200px;
+      background-color: #212529;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .header_componnent2 {
+      background-color: #444;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="pageContainer">
+    <header>
+      <div>
+        <h1>Menu</h1>
+        <p>Liens...</p>
+      </div>
+      <div class="header_componnent2">
+        Notifications
+      </div>
+    </header>
+    <main>
+      <p>Contenu principal</p>
+    </main>
+  </div>
+</body>
+</html>

@@ -21,6 +21,7 @@
 
 .containerWidth{
     width:100%;
+    padding:20px;
 }
 
 .label_user{
@@ -160,4 +161,68 @@
 /* Effet de survol des liens */
 .link:hover {
     background-color: rgba(138, 43, 226, 0.8);
+}
+.pageContainer {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Largeur fixe du header */
+header {
+  width: 120px;
+  min-width: 120px;
+  background-color: #343a40;
+  color: white;
+  box-sizing: border-box;
+  height:auto;
+}
+
+/* Contenu à droite */
+.admin-panel-container {
+  flex: 1; /* prend tout l’espace restant */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+}
+
+/* Boîte centrée */
+.admin-center-box {
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.dashboard-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dashboard-links a {
+  padding: 15px 25px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 140px; /* ajusté en fonction de la largeur de ton header */
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #343a40;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.back-arrow:hover {
+  color: #007bff;
 }

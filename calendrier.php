@@ -6,7 +6,7 @@
     //     var_dump($_SESSION); 
     // echo('</pre>');
     
-    $SQLCours='SELECT ce.id_etudiant,ce.id_cours,ce.presence_etudiant,s.name as matiere,cl.name as class,e.Username as prof
+    $SQLCours='SELECT ce.id_etudiant,ce.id_cours,ce.presence_etudiant,ce.ID AS id_cours_etudiant, s.name as matiere,cl.name as class,e.Username as prof
                 FROM 
                     cours_etudiant as ce
                 JOIN 
@@ -84,7 +84,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                                     if ($resultat['presence_etudiant'] == 0) {
                                         echo '<form method="POST" action="" class="d-flex justify-content-center">
                                                 <input type="hidden" name="heure" value="' . $heureDeDebut . '">
-                                                <input type="hidden" name="cours_id" value="' . htmlspecialchars($resultat['id_cours']) . '">
+                                                <input type="hidden" name="cours_id" value="' . htmlspecialchars($resultat['id_cours_etudiant']) .'">
                                                 <input type="submit" value="Signer" class="btn btn-primary">
                                               </form>';
                                     } else {

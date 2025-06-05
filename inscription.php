@@ -60,9 +60,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
 }
 
 ?>
-<a href='admin.php' class='m-2 mr-3'>
-    <i class="bi bi-arrow-left fs-2 text-primary border border-dark rounded-circle px-2 py-1 circle-arrow"></i>
-</a>
+<a href="cours.php" class="back-arrow">&larr; Retour</a>
 <div class='d-flex flex-column align-items-center w-100'>
     <div class='bg-secondary container5 rounded mt-3'>
         <div class='Container-Connection'>

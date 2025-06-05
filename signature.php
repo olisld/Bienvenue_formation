@@ -5,52 +5,42 @@ include_once('bddconnection.php');
 // echo('<pre>');
 //     var_dump($_SESSION); 
 // echo('</pre>');
-
 //variable de requete sql: 
-$SQLCours='SELECT  ce.id_etudiant,ce.id_cours,s.name as matiere,cl.name as class,e.Username as prof, ce.presence_etudiant as presence 
-            FROM cours_etudiant as ce
+$SQLCours = 'SELECT 
+    ce.id,
+    ce.id_etudiant,
+    ce.id_cours,
+    s.name AS matiere,
+    cl.name AS class,
+    e.Username AS prof,
+    ce.presence_etudiant AS presence
+FROM cours_etudiant AS ce
+JOIN cours AS c ON ce.id_cours = c.ID
+JOIN subject AS s ON c.subject_id = s.ID
+JOIN class AS cl ON c.class_id = cl.id
+JOIN élève AS e ON c.prof_id = e.ID
+WHERE ce.id = :ce_id';
 
-                JOIN 
-                    cours as c ON ce.id_cours=c.ID
-                JOIN 
-                    subject as s ON c.subject_id=s.ID
-                JOIN 
-                    class as cl ON c.class_id=cl.id
-                JOIN 
-                    élève as e ON c.prof_id=e.ID
-                WHERE 
-                    ce.id_cours=:cours_id and ce.id_etudiant=:eleve_id
-';
+$SQLsignature = 'SELECT presence_etudiant AS presence
+FROM cours_etudiant
+WHERE id = :ce_id';
 
-$SQLsignature='SELECT ce.presence_etudiant as presence
-                FROM 
-                    cours_etudiant as ce
-                WHERE 
-                    ce.id_cours=:cours_id and ce.id_etudiant=:eleve_id
 
-';
-
-$SQLpresence='UPDATE `cours_etudiant` as ce
-                SET 
-                    presence_etudiant=1
-                WHERE
-                     ce.id_cours=:cours_id and ce.id_etudiant=:eleve_id
-';
+$SQLpresence = 'UPDATE cours_etudiant
+SET presence_etudiant = 1
+WHERE id = :ce_id';
 
 // fonction de modification ou de selection de la base de donnée
-function fetchsignature ($sql,$pdo){
-    $stmt = $pdo->prepare($sql); // Préparer la requête
-    $stmt->bindParam(':cours_id', $_SESSION['cours_id'], PDO::PARAM_INT); // Sécuriser la variable
-    $stmt->bindParam(':eleve_id', $_SESSION['eleve_id'], PDO::PARAM_INT); // Sécuriser la variable
-    $stmt->execute(); // Exécuter la requête
+function fetchsignature($sql, $pdo) {
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':ce_id', $_SESSION['cours_id'], PDO::PARAM_INT);
+    $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-function ModifPresence($sql,$pdo){
-    $stmt = $pdo->prepare($sql); // Préparer la requête
-    $stmt->bindParam(':cours_id', $_SESSION['cours_id'], PDO::PARAM_INT); // Sécuriser la variable
-    $stmt->bindParam(':eleve_id', $_SESSION['eleve_id'], PDO::PARAM_INT); // Sécuriser la variable
-    $stmt->execute(); // Exécuter la requête
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+function ModifPresence($sql, $pdo) {
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':ce_id', $_SESSION['cours_id'], PDO::PARAM_INT); 
+    $stmt->execute();
 }
 
 
@@ -63,14 +53,11 @@ function ModifPresence($sql,$pdo){
 $resultats= fetchsignature($SQLCours,$pdo);
 $signature= fetchsignature($SQLsignature,$pdo);
 
-echo('<pre>');
-var_dump($signature);
-echo('</pre>');
 
 // variable de temps
 $Mois=Date('F');
 $Jours=Date('d');
-$heure_debut=$_SESSION['heure'];
+$heure_debut=$_SESSION['heure']; 
 $heure_fin=$heure_debut+2;
 
 // action à executer lors de la soumission du formulaire
@@ -81,6 +68,7 @@ if ($_SERVER["REQUEST_METHOD"]=='POST'){
 }
 
 ?>
+<a href="calendrier.php" class="back-arrow">&larr; Retour</a>
 <div class="full_page">
     <div class='signature_div'>
 
